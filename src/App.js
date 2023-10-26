@@ -1,15 +1,22 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { getAllMuseumDepartments } from './apiCalls';
+import { getAllMuseumDepartments, getObjects } from './apiCalls';
 
 function App() {
   const [error, setError] = useState("")
+  const [object, setObject] = useState([])
 
   useEffect(() => {
     getAllMuseumDepartments()
-    .then(departmentsData => console.log(departmentsData))
+    .then(departmentsData => {
+    getObjects(departmentsData.objectIDs)
+    // .then(data => setObject(data))
+    // console.log(departmentsData.objectIDs)
+    
+    })
     .catch(error => setError(error.message))
   }, [])
+
 
   return (
     <div className="App">

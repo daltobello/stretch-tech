@@ -1,5 +1,5 @@
 function getAllMuseumDepartments() {
-  return fetch("https://collectionapi.metmuseum.org/public/collection/v1/departments")
+  return fetch("https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11")
   .then(response => {
     if(response.ok) {
       return response
@@ -10,4 +10,22 @@ function getAllMuseumDepartments() {
   .then(response => response.json())
 }
 
-export { getAllMuseumDepartments }
+
+
+function getObject(objectId) {
+  return fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectId}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error(`Failed to retrieve object details for ID ${objectId}`);
+      }
+    });
+}
+
+function getObjects(arrayOfObjectIds) {
+  const objectPromises = arrayOfObjectIds.map((objectId) => getObject(objectId));
+  return Promise.all(objectPromises);
+}
+
+export { getAllMuseumDepartments, getObjects}
