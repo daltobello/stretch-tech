@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import { getAllMuseumDepartments } from './apiCalls';
 
 function App() {
+  const [error, setError] = useState("")
+
+  useEffect(() => {
+    getAllMuseumDepartments()
+    .then(departmentsData => console.log(departmentsData))
+    .catch(error => setError(error.message))
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Stretch Tech!</h1>
     </div>
   );
 }
