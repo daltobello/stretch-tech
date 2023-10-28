@@ -4,6 +4,7 @@ import { getAllMuseumDepartments, getDepartmentObjects } from '../../apiCalls';
 import Header from '../Header/Header'
 import Gallery from '../Gallery/Gallery'
 import Footer from '../Footer/Footer'
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
   const [error, setError] = useState("");
