@@ -1,4 +1,5 @@
 import './ArtCard.css'
+import { Link } from 'react-router-dom'
 
 function ArtCard({ image, title }) {
   return (
