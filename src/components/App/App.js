@@ -11,6 +11,7 @@ import Favorites from '../Favorites/Favorites';
 function App() {
   const [error, setError] = useState("");
   const [departmentObj, setDepartmentObj] = useState([]);
+  const [favoriteCards, setFavoriteCards] = useState([]); // will want to use redux here, doing regular state for now.
 
   useEffect(() => {
     getAllMuseumDepartments()
@@ -31,7 +32,7 @@ function App() {
         console.log('DEPARTOBJ', departmentObj)
       })
       .catch(error => {
-        setError(error.message);
+        setError(error.message)
       });
   }, []);
 
@@ -39,7 +40,7 @@ function App() {
     <div className="App">
       <Header/>
       <Routes>
-        <Route path='/' element={<Gallery departmentObj={departmentObj}/>} />
+        <Route path='/' element={<Gallery departmentObj={departmentObj} setFavoriteCards={setFavoriteCards} favoriteCards={favoriteCards}/>} />
         <Route path='/art/:id' element={<SelectedCard />} />
         <Route path='/favorites' element={<Favorites />} />
       </Routes>
