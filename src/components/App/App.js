@@ -6,6 +6,7 @@ import Gallery from '../Gallery/Gallery'
 import Footer from '../Footer/Footer'
 import { Route, Routes } from 'react-router-dom'
 import SelectedCard from '../SelectedCard/SelectedCard';
+import Favorites from '../Favorites/Favorites';
 
 function App() {
   const [error, setError] = useState("");
@@ -40,6 +41,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Gallery departmentObj={departmentObj}/>} />
         <Route path='/art/:id' element={<SelectedCard />} />
+        <Route path='/favorites' element={<Favorites />} />
       </Routes>
       <Footer/>
     </div>

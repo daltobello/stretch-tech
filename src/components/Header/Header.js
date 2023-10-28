@@ -7,6 +7,9 @@ function Header() {
       <Link to='/' className='home-link'>
         <h1>THE MET</h1>
       </Link>
+      <Link to='/favorites' className='favorites-link'>
+        <button>Favorites</button>
+      </Link>  
     </div>
   )
 }
