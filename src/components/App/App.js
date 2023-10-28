@@ -18,7 +18,7 @@ function App() {
         // console.log("object ids: ", objectIDs);
 
         if (objectIDs.length > 0) {
-          return getDepartmentObjects(objectIDs);
+          return getDepartmentObjects(objectIDs, 80, setDepartmentObj);
         } else {
           console.log('no IDs to fetch details for');
           return [];
@@ -30,7 +30,7 @@ function App() {
         console.log('DEPARTOBJ', departmentObj)
       })
       .catch(error => {
-        setError(error.message);
+        setError(error.message)
       });
   }, []);
 
