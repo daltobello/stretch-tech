@@ -22,7 +22,7 @@ async function getDepartmentObjects(objectIDs, maxIDs = 40) {
       const response = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectId}`);
       if (response.ok) {
         const detail = await response.json();
-        console.log("Fetched detail for objectID", objectId, ":", detail);
+        // console.log("Fetched detail for objectID", objectId, ":", detail);
         objectDetails.push(detail);
       } else {
         console.error(`${response.status} ${response.statusText}. Something went wrong with getting object details for objectID ${objectId}`);
@@ -36,4 +36,16 @@ async function getDepartmentObjects(objectIDs, maxIDs = 40) {
   }
 }
 
-export { getAllMuseumDepartments, getDepartmentObjects }
+function getSingleArtDetails(artId) {
+  return fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${artId}`)
+  .then(response => {
+    if(response.ok) {
+      return response
+    } else {
+      throw new Error(`${response.status} ${response.statusText}. Something went wrong with getting art piece data.`)
+    }
+  })
+  .then(response => response.json())
+}
+
+export { getAllMuseumDepartments, getDepartmentObjects, getSingleArtDetails }
