@@ -10,6 +10,7 @@ import SelectedCard from '../SelectedCard/SelectedCard';
 function App() {
   const [error, setError] = useState("");
   const [departmentObj, setDepartmentObj] = useState([]);
+  const [favoriteCards, setFavoriteCards] = useState([]); // will want to use redux here, doing regular state for now.
 
   useEffect(() => {
     getAllMuseumDepartments()
@@ -38,7 +39,7 @@ function App() {
     <div className="App">
       <Header/>
       <Routes>
-        <Route path='/' element={<Gallery departmentObj={departmentObj}/>} />
+        <Route path='/' element={<Gallery departmentObj={departmentObj} setFavoriteCards={setFavoriteCards} favoriteCards={favoriteCards}/>} />
         <Route path='/art/:id' element={<SelectedCard />} />
       </Routes>
       <Footer/>
