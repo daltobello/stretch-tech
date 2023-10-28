@@ -2,6 +2,7 @@ import './SelectedCard.css'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getSingleArtDetails } from '../../apiCalls'
+import { Route, Routes, Link } from 'react-router-dom'
 
 // use useEffect in order to fetch data again
 // use Find to get the object Details of the specific art piece
@@ -37,6 +38,9 @@ function SelectedCard() {
                     Accession Number: {selectedArt.accessionNumber}
                 </div>
             </div>
+            <Link to='/'>
+                <button>back</button>
+            </Link>
         </div>
     )
 }
