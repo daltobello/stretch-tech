@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { getAllMuseumDepartments, getDepartmentObjects } from '../../apiCalls';
 import Header from '../Header/Header'
 import Gallery from '../Gallery/Gallery'
-import ArtCard from '../ArtCard/ArtCard';
 import Footer from '../Footer/Footer'
 
 function App() {
@@ -34,9 +33,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Stretch Tech!</h1>
       <Header/>
-      <Gallery ArtCard={ArtCard}/>
+      <Gallery departmentObj={departmentObj}/>
       <Footer/>
     </div>
   );
