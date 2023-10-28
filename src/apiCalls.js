@@ -10,7 +10,7 @@ function getAllMuseumDepartments() {
   .then(response => response.json())
 }
 
-async function getDepartmentObjects(objectIDs, maxIDs = 40) {
+async function getDepartmentObjects(objectIDs, maxIDs = 40, setDepartmentObj) {
   const objectDetails = [];
 
   try {
@@ -24,6 +24,7 @@ async function getDepartmentObjects(objectIDs, maxIDs = 40) {
         const detail = await response.json();
         // console.log("Fetched detail for objectID", objectId, ":", detail);
         objectDetails.push(detail);
+        setDepartmentObj(objectDetails)
       } else {
         console.error(`${response.status} ${response.statusText}. Something went wrong with getting object details for objectID ${objectId}`);
         throw new Error(`${response.status} ${response.statusText}. Something went wrong with getting object details.`);
