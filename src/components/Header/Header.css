@@ -6,3 +6,12 @@
   justify-content: center;
   align-items: center;
 }
+
+.h1 {
+  font-size: 3em;
+}
+
+.home-link {
+  text-decoration: inherit;
+  color: inherit;
+}
