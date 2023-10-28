@@ -1,8 +1,13 @@
 import './Header.css'
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
-    <div className='header'>THE MET</div>
+    <div className='header'>
+      <Link to='/' className='home-link'>
+        <h1>THE MET</h1>
+      </Link>
+    </div>
   )
 }
 
