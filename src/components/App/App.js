@@ -4,6 +4,8 @@ import { getAllMuseumDepartments, getDepartmentObjects } from '../../apiCalls';
 import Header from '../Header/Header'
 import Gallery from '../Gallery/Gallery'
 import Footer from '../Footer/Footer'
+import { Route, Routes } from 'react-router-dom'
+import SelectedCard from '../SelectedCard/SelectedCard';
 
 function App() {
   const [error, setError] = useState("");
@@ -13,7 +15,7 @@ function App() {
     getAllMuseumDepartments()
       .then(data => {
         const objectIDs = data.objectIDs;
-        console.log("object ids: ", objectIDs);
+        // console.log("object ids: ", objectIDs);
 
         if (objectIDs.length > 0) {
           return getDepartmentObjects(objectIDs);
@@ -25,6 +27,7 @@ function App() {
       .then(objectDetails => {
         console.log("objectDetails: ", objectDetails);
         setDepartmentObj(objectDetails);
+        console.log('DEPARTOBJ', departmentObj)
       })
       .catch(error => {
         setError(error.message);
@@ -34,7 +37,10 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <Gallery departmentObj={departmentObj}/>
+      <Routes>
+        <Route path='/' element={<Gallery departmentObj={departmentObj}/>} />
+        <Route path='/art/:id' element={<SelectedCard />} />
+      </Routes>
       <Footer/>
     </div>
   );
