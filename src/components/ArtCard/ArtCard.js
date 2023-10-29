@@ -25,7 +25,7 @@ function ArtCard({ image, title, id, setFavoriteCards, favoriteCards }) {
           <button onClick={toggleFavorite}>
             {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
           </button>
-          <p>{title}</p>
+          <p className="art-title">{title}</p>
         </Link>
       </div>
     </div>
