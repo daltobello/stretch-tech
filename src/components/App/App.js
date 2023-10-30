@@ -12,6 +12,7 @@ function App() {
   const [error, setError] = useState("");
   const [departmentObj, setDepartmentObj] = useState([]);
   const [favoriteCards, setFavoriteCards] = useState([]); // will want to use redux here, doing regular state for now.
+  
 
   useEffect(() => {
     getAllMuseumDepartments()
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <div className="App">
+      {error && <div className="error-message">{error}</div>}
       <Header/>
       <Routes>
         <Route path='/' element={<Gallery departmentObj={departmentObj} setFavoriteCards={setFavoriteCards} favoriteCards={favoriteCards}/>} />

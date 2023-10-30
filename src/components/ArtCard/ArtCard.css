@@ -15,3 +15,7 @@
   text-decoration: inherit;
   color: inherit;
 }
+
+.art-title {
+  max-width: 75%;
+}

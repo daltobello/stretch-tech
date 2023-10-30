@@ -1,13 +1,20 @@
+const handleErrors = (response) => {
+  if (!response.ok) {
+    switch(response.status) {
+      case 400:
+        throw new Error("Sorry, the server is down, please try again later.");
+      case 500:
+        throw new Error("This is a bad request,  please try again later.");
+      default:
+        throw new Error("Sorry, an error occured, please refresh page or try again later.");
+    }
+  }
+  return response.json();
+}
+
 function getAllMuseumDepartments() {
   return fetch("https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11")
-  .then(response => {
-    if(response.ok) {
-      return response
-    } else {
-      throw new Error(`${response.status} ${response.statusText}. Something went wrong with getting all museum departments.`)
-    }
-  })
-  .then(response => response.json())
+  .then(handleErrors)
 }
 
 async function getDepartmentObjects(objectIDs, maxIDs = 40, setDepartmentObj) {
@@ -39,14 +46,7 @@ async function getDepartmentObjects(objectIDs, maxIDs = 40, setDepartmentObj) {
 
 function getSingleArtDetails(artId) {
   return fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${artId}`)
-  .then(response => {
-    if(response.ok) {
-      return response
-    } else {
-      throw new Error(`${response.status} ${response.statusText}. Something went wrong with getting art piece data.`)
-    }
-  })
-  .then(response => response.json())
+  .then(handleErrors)
 }
 
 export { getAllMuseumDepartments, getDepartmentObjects, getSingleArtDetails }
