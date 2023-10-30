@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 function ArtCard({ image, title, id, setFavoriteCards, favoriteCards }) {
   const isFavorite = favoriteCards.includes(id);
-
-
+  console.log(favoriteCards)
   const toggleFavorite = (event) => {
     event.preventDefault();
+    localStorage.setItem("favoriteCards", JSON.stringify(favoriteCards))
     if (isFavorite) {
       // If it's already a favorite, remove it from the favorites
       const updatedFavorites = favoriteCards.filter((favoriteId) => favoriteId !== id);
@@ -15,6 +15,8 @@ function ArtCard({ image, title, id, setFavoriteCards, favoriteCards }) {
       // If it's not a favorite, add it to the favorites
       setFavoriteCards([...favoriteCards, id]);
     }
+    localStorage.setItem("favoriteCards", JSON.stringify(favoriteCards))
+    console.log(favoriteCards)
   };
 
   return (

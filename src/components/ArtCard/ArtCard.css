@@ -14,6 +14,8 @@
 .selected-art-link {
   text-decoration: inherit;
   color: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 .art-title {

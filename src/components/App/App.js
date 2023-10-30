@@ -11,7 +11,8 @@ import Favorites from '../Favorites/Favorites';
 function App() {
   const [error, setError] = useState("");
   const [departmentObj, setDepartmentObj] = useState([]);
-  const [favoriteCards, setFavoriteCards] = useState([]); // will want to use redux here, doing regular state for now.
+  const storedFavoriteCards = JSON.parse(localStorage.getItem("favoriteCards")) || [];
+  const [favoriteCards, setFavoriteCards] = useState(Array.isArray(storedFavoriteCards) ? storedFavoriteCards : []);
   
 
   useEffect(() => {
