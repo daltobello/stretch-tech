@@ -11,10 +11,7 @@ import Favorites from '../Favorites/Favorites';
 function App() {
   const [error, setError] = useState("");
   const [departmentObj, setDepartmentObj] = useState([]);
-  const storedFavoriteCards = JSON.parse(localStorage.getItem("favoriteCards")) || [];
-  const [favoriteCards, setFavoriteCards] = useState(Array.isArray(storedFavoriteCards) ? storedFavoriteCards : []);
   
-
   useEffect(() => {
     getAllMuseumDepartments()
       .then(data => {
@@ -22,17 +19,16 @@ function App() {
         // console.log("object ids: ", objectIDs);
 
         if (objectIDs.length > 0) {
-          return getDepartmentObjects(objectIDs, 80, setDepartmentObj);
+          return getDepartmentObjects(objectIDs, 5, setDepartmentObj);
         } else {
           console.log('no IDs to fetch details for');
           return [];
         }
       })
-      .then(objectDetails => {
-        console.log("objectDetails: ", objectDetails);
-        setDepartmentObj(objectDetails);
-        console.log('DEPARTOBJ', departmentObj)
-      })
+      // .then(objectDetails => {
+      //   console.log("objectDetails: ", objectDetails);
+      //   setDepartmentObj(objectDetails);
+      // })
       .catch(error => {
         setError(error.message)
       });
@@ -43,7 +39,7 @@ function App() {
       {error && <div className="error-message">{error}</div>}
       <Header/>
       <Routes>
-        <Route path='/' element={<Gallery departmentObj={departmentObj} setFavoriteCards={setFavoriteCards} favoriteCards={favoriteCards}/>} />
+        <Route path='/' element={<Gallery departmentObj={departmentObj}/>} />
         <Route path='/art/:id' element={<SelectedCard />} />
         <Route path='/favorites' element={<Favorites />} />
       </Routes>

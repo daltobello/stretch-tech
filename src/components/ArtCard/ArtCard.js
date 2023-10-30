@@ -1,34 +1,35 @@
 import './ArtCard.css';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
+import { addFavorite, removeFavorite } from '../../Redux/favoriteCardsSlice'
 
-function ArtCard({ image, title, id, setFavoriteCards, favoriteCards }) {
+function ArtCard({ image, title, id }) {
+  const favoriteCards = useSelector((state) => state.favoriteCards);
+
+  const dispatch = useDispatch();
   const isFavorite = favoriteCards.includes(id);
-  console.log(favoriteCards)
-  const toggleFavorite = (event) => {
-    event.preventDefault();
-    localStorage.setItem("favoriteCards", JSON.stringify(favoriteCards))
+
+  const toggleFavorite = () => {
+    console.log('toggle clicked')
     if (isFavorite) {
-      // If it's already a favorite, remove it from the favorites
-      const updatedFavorites = favoriteCards.filter((favoriteId) => favoriteId !== id);
-      setFavoriteCards(updatedFavorites);
-    } else {
-      // If it's not a favorite, add it to the favorites
-      setFavoriteCards([...favoriteCards, id]);
+      console.log('removing...')
+      dispatch(removeFavorite(id))
+  } else {
+      console.log('adding...')
+      dispatch(addFavorite(id));
     }
-    localStorage.setItem("favoriteCards", JSON.stringify(favoriteCards))
-    console.log(favoriteCards)
-  };
+  }
 
   return (
     <div className='art-card'>
       <div className='image-container'>
         <Link to={`/art/${id}`} className='selected-art-link'>
           <img alt={`photo for ${title} art piece`} src={image} className='art-card-img' />
-          <button onClick={toggleFavorite}>
-            {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
-          </button>
           <p className="art-title">{title}</p>
         </Link>
+          <button onClick={() => toggleFavorite()}>
+            {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+          </button>
       </div>
     </div>
   );
