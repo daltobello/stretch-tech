@@ -16,7 +16,6 @@ function App() {
     getAllMuseumDepartments()
       .then(data => {
         const objectIDs = data.objectIDs;
-        // console.log("object ids: ", objectIDs);
 
         if (objectIDs.length > 0) {
           return getDepartmentObjects(objectIDs, 5, setDepartmentObj);
@@ -25,10 +24,9 @@ function App() {
           return [];
         }
       })
-      // .then(objectDetails => {
-      //   console.log("objectDetails: ", objectDetails);
-      //   setDepartmentObj(objectDetails);
-      // })
+      .then(objectDetails => {
+        setDepartmentObj(objectDetails);
+      })
       .catch(error => {
         setError(error.message)
       });
