@@ -29,7 +29,6 @@ async function getDepartmentObjects(objectIDs, maxIDs = 40, setDepartmentObj) {
       const response = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectId}`);
       if (response.ok) {
         const detail = await response.json();
-        // console.log("Fetched detail for objectID", objectId, ":", detail);
         objectDetails.push(detail);
         setDepartmentObj(objectDetails)
       } else {
