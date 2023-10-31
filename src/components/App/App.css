@@ -1,10 +1,11 @@
 * {
-  border: 1px solid green;
-  margin: 0;
-  padding: 0;
+  /* border: 1px solid green; */
+  margin: 0px;
+  padding: 0px;
 }
 
 .App {
+  font-family: serif;
   display: flex;
   flex-direction: column;
   justify-content: center;

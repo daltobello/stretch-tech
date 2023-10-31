@@ -18,7 +18,7 @@ function App() {
         const objectIDs = data.objectIDs;
 
         if (objectIDs.length > 0) {
-          return getDepartmentObjects(objectIDs, 5, setDepartmentObj);
+          return getDepartmentObjects(objectIDs, 40, setDepartmentObj);
         } else {
           console.log('no IDs to fetch details for');
           return [];
