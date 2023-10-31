@@ -1,5 +1,7 @@
 .selected-art-container {
     display: flex;
+    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -7,4 +9,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.selected-art-image {
+    width: 30%;
 }

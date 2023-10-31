@@ -1,9 +1,10 @@
 .gallery {
-  height: 90vh;
-  /* width: 80%; */
-  max-width: 80%;
+  height: 80vh;
   display: grid;
-  grid-template-columns:repeat(2, 1fr);
-  grid-gap: 40px;
-  overflow-y: auto;
+  max-width: 600px;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  overflow-y: scroll;
+  padding: 50px;
 }
+

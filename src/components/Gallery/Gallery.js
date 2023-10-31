@@ -1,7 +1,7 @@
 import './Gallery.css'
 import ArtCard from '../ArtCard/ArtCard'
 
-function Gallery({ departmentObj, favoriteCards, setFavoriteCards }) {
+function Gallery({ departmentObj }) {
   const allArtCards = departmentObj.map((obj => {
     return (
       <ArtCard
@@ -11,8 +11,6 @@ function Gallery({ departmentObj, favoriteCards, setFavoriteCards }) {
       image={obj.primaryImage}
       title={obj.title}
       artist={obj.artistAlphaSort}
-      favoriteCards={favoriteCards}
-      setFavoriteCards={setFavoriteCards}
       />)
   }))
   

@@ -1,4 +1,14 @@
 .favorites-container {
   height: 80vh;
-  width: 100%;
+  display: grid;
+  max-width: 1000px;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: scroll;
+  padding: 50px;
 }
+
+.image-container {
+  width: 300px;
+}
+

@@ -1,23 +1,33 @@
 .art-card {
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
 .art-card-img {
-  height: 100%;
-  width: 200px;
+  width: 100%;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  border-radius: 10px;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .selected-art-link {
   text-decoration: inherit;
   color: inherit;
-  display: flex;
-  flex-direction: column;
 }
 
-.art-title {
-  max-width: 75%;
+.favorite-btn {
+  bottom: 0;
+  position: absolute;
+	right: 0;
+  margin-bottom: 15px;
+  margin-right: 10px;
 }
