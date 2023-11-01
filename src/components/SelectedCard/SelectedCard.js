@@ -10,19 +10,20 @@ import { faHeart, faArrowLeft  } from '@fortawesome/free-solid-svg-icons';
 
 function SelectedCard() {
     const [selectedArt, setSelectedArt] = useState(false)
-    const { id } = useParams()
+    const { id } = useParams();
     const favoriteCards = useSelector((state) => state.favoriteCards);
-
+    const idNum = parseInt(id)
     const dispatch = useDispatch();
-    const isFavorite = favoriteCards.includes(id);
+    const isFavorite = favoriteCards.includes(idNum);
+    console.log(idNum)
 
     const toggleFavorite = () => {
         if (isFavorite) {
-          dispatch(removeFavorite(id))
+          dispatch(removeFavorite(idNum))
       } else {
-          dispatch(addFavorite(id));
+          dispatch(addFavorite(idNum));
         }
-      }
+    }
       
     useEffect(() => {
         console.log('useEffectID', id)
@@ -42,7 +43,7 @@ function SelectedCard() {
             <div className='buttons-wrapper'>
                 <div className='selected-favorite-btn' id="heart" onClick={() => toggleFavorite()}>
                 {isFavorite ? (
-                    <FontAwesomeIcon icon={faHeart} style={{ color: 'red', cursor: 'pointer', fontSize: '1.3em'}} />) : 
+                    <FontAwesomeIcon icon={faHeart} style={{color: 'red', cursor: 'pointer', fontSize: '1.3em'}} />) : 
                     (
                     <FontAwesomeIcon icon={faHeart} style={{color: "#FFFFFF", fontSize: '1.3em'}} />
                     )}

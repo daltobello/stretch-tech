@@ -10,10 +10,11 @@ function ArtCard({ image, title, id }) {
 
   const dispatch = useDispatch();
   const isFavorite = favoriteCards.includes(id);
+  console.log(favoriteCards)
 
   const toggleFavorite = () => {
     if (isFavorite) {
-      dispatch(removeFavorite(id))
+      dispatch(removeFavorite(id));
   } else {
       dispatch(addFavorite(id));
     }
@@ -28,7 +29,7 @@ function ArtCard({ image, title, id }) {
         </Link>
         <div className='favorite-btn' id="heart" onClick={() => toggleFavorite()}>
           {isFavorite ? (
-            <FontAwesomeIcon icon={faHeart} style={{ color: 'red', cursor: 'pointer', fontSize: '1.5em'}} />) : 
+            <FontAwesomeIcon icon={faHeart} style={{color: 'red', cursor: 'pointer', fontSize: '1.5em'}} />) : 
             (
             <FontAwesomeIcon icon={faHeart} style={{color: "#FFFFFF", fontSize: '1.5em'}} />
           )}
