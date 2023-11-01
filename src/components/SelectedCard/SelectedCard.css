@@ -8,9 +8,75 @@
 .selected-art-info {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 
-.selected-art-image {
-    width: 30%;
+.art-title {
+    margin-bottom: 10px;
+}
+
+.overview {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.buttons-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#heart {
+    cursor: pointer;
+}
+
+.selected-art-card-img {
+    border:solid 3px;
+    border-bottom-color:#ffe;
+    border-left-color:#eed;
+    border-right-color:#eed;
+    border-top-color:#ccb;
+}
+
+.selected-favorite-btn {
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+.frame {
+  display: flex;
+  background-color:#ddc;
+  border:solid 5vmin #eee;
+  border-bottom-color:#fff;
+  border-left-color:#eee;
+  border-radius:2px;
+  border-right-color:#eee;
+  border-top-color:#ddd;
+  box-shadow:0 0 5px 0 rgba(0,0,0,.25) inset, 0 2px 10px 2px rgba(0,0,0,.25);
+  box-sizing:border-box;
+  height:70vh;
+  padding:5vmin;
+  position:relative;
+  text-align:center;
+  margin-bottom: 10px;
+  &:before {
+    border-radius:2px;
+    bottom:-2vmin;
+    box-shadow:0 2px 5px 0 rgba(0,0,0,.25) inset;
+    content:"";
+    left:-2vmin;
+    position:absolute;
+    right:-2vmin;
+    top:-2vmin;
+  }
+  &:after {
+    border-radius:2px;
+    bottom:-2.5vmin;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+    content:"";
+    left:-2.5vmin;
+    position:absolute;
+    right:-2.5vmin;
+    top:-2.5vmin;
+  }
 }
