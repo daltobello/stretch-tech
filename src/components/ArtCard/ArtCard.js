@@ -23,7 +23,7 @@ function ArtCard({ image, title, id }) {
     <div className='art-card'>
       <div className='image-container'>
         <Link to={`/art/${id}`} className='selected-art-link'>
-          <img alt={`photo for ${title} art piece`} src={image} className='art-card-img' />
+          <img alt={`${title} art piece`} src={image} className='art-card-img' />
           <p className="art-title"></p>
         </Link>
         <div className='favorite-btn' id="heart" onClick={() => toggleFavorite()}>
