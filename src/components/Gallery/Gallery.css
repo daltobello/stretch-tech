@@ -1,9 +1,10 @@
 .gallery {
   height: 80vh;
-  display: grid;
-  max-width: 600px;
+  max-width: 1500px;
   gap: 10px;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   overflow-y: scroll;
   padding: 50px;
 }

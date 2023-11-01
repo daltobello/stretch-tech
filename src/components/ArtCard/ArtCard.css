@@ -5,17 +5,19 @@
   text-align: center;
 }
 
+.art-card:hover {
+  filter:brightness(120%);
+}
+
 .art-card-img {
+  display: flex;
   width: 100%;
-  overflow-clip-margin: content-box;
-  overflow: clip;
+  height: 450px;
+  object-fit: cover;
   border-radius: 10px;
 }
 
 .image-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
 }
 
@@ -30,4 +32,5 @@
 	right: 0;
   margin-bottom: 15px;
   margin-right: 10px;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
 }
