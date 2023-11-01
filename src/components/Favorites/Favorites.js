@@ -39,12 +39,12 @@ function Favorites() {
         </div>
     )
   } else {
-  return (
-    <div className='favorites-container'>
-      {allFaves}
-    </div>
-  )}
-  
+      return (
+        <div className='favorites-container'>
+          {allFaves}
+        </div>
+      )}
+
 }
 
 export default Favorites
