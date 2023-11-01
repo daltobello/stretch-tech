@@ -36,24 +36,24 @@ function SelectedCard({ setServerError }) {
 
     return (
         <div className='selected-art-container'>
-
             <div className='selected-art-image'>
-                <img alt={`${selectedArt.title} art piece`} src={selectedArt.primaryImage}className='art-card-img'/>
+                <img alt={`${selectedArt.title} art piece`} src={selectedArt.primaryImage} className='art-card-img' />
+            </div>
             <div className='selected-art-image-wrapper'>
                 <div className='frame'>
-                <img alt={`${selectedArt.title} art piece`} src={selectedArt.primaryImage} className='selected-art-card-img'/>
+                    <img alt={`${selectedArt.title} art piece`} src={selectedArt.primaryImage} className='selected-art-card-img' />
                 </div>
             </div>
             <div className='buttons-wrapper'>
                 <div className='selected-favorite-btn' id="heart" onClick={() => toggleFavorite()}>
-                {isFavorite ? (
-                    <FontAwesomeIcon icon={faHeart} style={{ color: 'red', cursor: 'pointer', fontSize: '1.3em'}} />) : 
-                    (
-                    <FontAwesomeIcon icon={faHeart} style={{color: "#FFFFFF", fontSize: '1.3em'}} />
+                    {isFavorite ? (
+                        <FontAwesomeIcon icon={faHeart} style={{ color: 'red', cursor: 'pointer', fontSize: '1.3em' }} />
+                    ) : (
+                        <FontAwesomeIcon icon={faHeart} style={{ color: "#FFFFFF", fontSize: '1.3em' }} />
                     )}
                 </div>
                 <Link to='/'>
-                    <FontAwesomeIcon icon={faArrowLeft} style={{color: "#000000", fontSize: '1.3em'}}/>
+                    <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#000000", fontSize: '1.3em' }} />
                 </Link>
             </div>
             <div className='selected-art-info'>
@@ -67,7 +67,7 @@ function SelectedCard({ setServerError }) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default SelectedCard
+export default SelectedCard;
