@@ -7,9 +7,10 @@ import Footer from '../Footer/Footer'
 import { Route, Routes } from 'react-router-dom'
 import SelectedCard from '../SelectedCard/SelectedCard';
 import Favorites from '../Favorites/Favorites';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 function App() {
-  const [error, setError] = useState("");
+  const [serverError, setServerError] = useState({hasError: false, message: ''});
   const [departmentObj, setDepartmentObj] = useState([]);
   
   useEffect(() => {
@@ -28,19 +29,26 @@ function App() {
         setDepartmentObj(objectDetails);
       })
       .catch(error => {
-        setError(error.message)
+        setServerError({hasError: true, message: `${error.message}`})
       });
   }, []);
 
+  const resetError = () => {
+    setServerError({hasError: false, message: ''});
+  };
+
   return (
     <div className="App">
-      {error && <div className="error-message">{error}</div>}
-      <Header/>
+      <Header resetError={resetError} />
+      {serverError.hasError ? (
+        <ErrorPage serverError={serverError} resetError={resetError} />
+      ) : (
       <Routes>
         <Route path='/' element={<Gallery departmentObj={departmentObj}/>} />
-        <Route path='/art/:id' element={<SelectedCard />} />
+        <Route path='/art/:id' element={<SelectedCard setServerError={setServerError} />} />
         <Route path='/favorites' element={<Favorites />} />
-      </Routes>
+        <Route path='*' element={<ErrorPage resetError={resetError} />} />
+      </Routes> )}
       <Footer/>
     </div>
   );
