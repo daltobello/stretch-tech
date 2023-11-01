@@ -1,7 +1,7 @@
 const handleErrors = (response) => {
   if (!response.ok) {
     switch(response.status) {
-      case 400:
+      case 404:
         throw new Error("Sorry, that art piece doesn't exist.");
       case 500:
         throw new Error("This is a bad request,  please try again later.");
