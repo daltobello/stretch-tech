@@ -15,6 +15,7 @@ const handleErrors = (response) => {
 function getAllMuseumDepartments() {
   return fetch("https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11")
   .then(handleErrors)
+  .catch(console.log("error in network request"))
 }
 
 async function getDepartmentObjects(objectIDs, maxIDs = 40, setDepartmentObj) {
