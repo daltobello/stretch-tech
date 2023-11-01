@@ -8,7 +8,7 @@ function Header() {
         <h1>THE MET</h1>
       </Link>
       <Link to='/favorites' className='favorites-link'>
-        <button>Favorites</button>
+        <button className='fav-button'>Favorites</button>
       </Link>  
     </div>
   )

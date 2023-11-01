@@ -43,11 +43,11 @@ describe("page load", () => {
   });
 
   it("should display all homepage elements", () => {
-    
-    // check header
-    // favorites button
+    cy.get('h1').contains("THE MET")
+    .get('.fav-button').should("exist")
+    .get('.gallery').children().should("have.length", 3)
+    .get('.gallery > :nth-child(1)').should("have.attr", "id").should("eq", 36044 ) // not passing
     // gallery section with 3 pictures
     // footer
-
   })
 });
