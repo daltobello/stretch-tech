@@ -32,11 +32,19 @@ function Favorites() {
     fetchFaves()
   }, [favoriteCards])
 
+  if (allFaves.length === 0) {
+    return (
+      <div className='no-tracked'>
+          <h2 className='no-tracked-text'>You do not have any saved art pieces.</h2>
+        </div>
+    )
+  } else {
   return (
     <div className='favorites-container'>
       {allFaves}
     </div>
-  )
+  )}
+  
 }
 
 export default Favorites
