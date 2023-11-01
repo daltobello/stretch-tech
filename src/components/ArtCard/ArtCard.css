@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.art-card:hover {
+  filter:brightness(120%);
+}
+
 .art-card-img {
   display: flex;
   width: 100%;
