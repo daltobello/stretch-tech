@@ -4,22 +4,24 @@ import { useParams } from 'react-router-dom'
 import { getSingleArtDetails } from '../../apiCalls'
 import { Link } from 'react-router-dom'
 
-function SelectedCard() {
+function SelectedCard({ setServerError }) {
     const [selectedArt, setSelectedArt] = useState(false)
     const { id } = useParams()
 
     useEffect(() => {
-        console.log('useEffectID', id)
         getSingleArtDetails(id)
             .then(data => {
                 setSelectedArt(data)
             })
-    }, [id])
+            .catch((error) => {
+                setServerError({ hasError: true, message: `${error.message}` })
+            })
+    }, [id, setServerError])
 
     return (
         <div className='selected-art-container'>
             <div className='selected-art-image'>
-                <img alt={`photo for ${selectedArt.title} art piece`} src={selectedArt.primaryImage}className='art-card-img'/>
+                <img alt={`${selectedArt.title} art piece`} src={selectedArt.primaryImage}className='art-card-img'/>
             </div>
             <div className='selected-art-info'>
                 <h2 className='art-title'>{selectedArt.title}</h2>
