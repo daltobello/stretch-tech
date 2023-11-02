@@ -39,10 +39,6 @@
     border-top-color:#ccb;
 }
 
-.selected-favorite-btn {
-  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
-}
-
 .frame {
   display: flex;
   background-color:#ddc;
@@ -79,4 +75,11 @@
     right:-2.5vmin;
     top:-2.5vmin;
   }
+}
+
+.back-btn {
+  border:0;
+  padding:0;
+  background-color: white;
+  cursor: pointer;
 }

@@ -5,24 +5,24 @@ import { getSingleArtDetails } from '../../apiCalls'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { addFavorite, removeFavorite } from '../../Redux/favoriteCardsSlice'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faArrowLeft  } from '@fortawesome/free-solid-svg-icons';
+import { FaRegHeart, FaLeftLong, FaHeart } from 'react-icons/fa6';
 
 function SelectedCard({ setServerError }) {
     const [selectedArt, setSelectedArt] = useState(false)
-    const { id } = useParams()
+    const { id } = useParams();
     const favoriteCards = useSelector((state) => state.favoriteCards);
-
+    const idNum = parseInt(id)
     const dispatch = useDispatch();
-    const isFavorite = favoriteCards.includes(id);
+    const isFavorite = favoriteCards.includes(idNum);
+    console.log(idNum)
 
     const toggleFavorite = () => {
         if (isFavorite) {
-          dispatch(removeFavorite(id))
+          dispatch(removeFavorite(idNum))
       } else {
-          dispatch(addFavorite(id));
+          dispatch(addFavorite(idNum));
         }
-      }
+    }
       
     useEffect(() => {
         getSingleArtDetails(id)
@@ -45,16 +45,16 @@ function SelectedCard({ setServerError }) {
                 </div>
             </div>
             <div className='buttons-wrapper'>
+                <button className='back-btn' onClick={() => window.history.back()}>
+                    <FaLeftLong style={{color: "#000000", fontSize: '1.3em'}}/>
+                </button>
                 <div className='selected-favorite-btn' id="heart" onClick={() => toggleFavorite()}>
-                    {isFavorite ? (
-                        <FontAwesomeIcon icon={faHeart} style={{ color: 'red', cursor: 'pointer', fontSize: '1.3em' }} />
-                    ) : (
-                        <FontAwesomeIcon icon={faHeart} style={{ color: "#FFFFFF", fontSize: '1.3em' }} />
+                {isFavorite ? (
+                    <FaHeart style={{color: 'red', cursor: 'pointer', fontSize: '1.3em'}} />) : 
+                    (
+                    <FaRegHeart style={{color: "#000000", fontSize: '1.3em'}} />
                     )}
                 </div>
-                <Link to='/'>
-                    <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#000000", fontSize: '1.3em' }} />
-                </Link>
             </div>
             <div className='selected-art-info'>
                 <h2 className='art-title'>{selectedArt.title}</h2>
