@@ -1,4 +1,4 @@
-describe("home button test", () => {
+describe("home button user flow", () => {
   beforeEach(() => {
     cy.intercept(
       "GET",
