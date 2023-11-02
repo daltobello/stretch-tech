@@ -1,12 +1,12 @@
 const handleErrors = (response) => {
   if (!response.ok) {
     switch(response.status) {
-      case 400:
-        throw new Error("Sorry, the server is down, please try again later.");
+      case 404:
+        throw new Error("Sorry, that art piece doesn't exist.");
       case 500:
         throw new Error("This is a bad request,  please try again later.");
       default:
-        throw new Error("Sorry, an error occured, please refresh page or try again later.");
+        throw new Error("An error occured, please return home.");
     }
   }
   return response.json();
@@ -15,6 +15,7 @@ const handleErrors = (response) => {
 function getAllMuseumDepartments() {
   return fetch("https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11")
   .then(handleErrors)
+  .catch(console.log("error in network request"))
 }
 
 async function getDepartmentObjects(objectIDs, maxIDs = 40, setDepartmentObj) {

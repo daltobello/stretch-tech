@@ -1,14 +1,14 @@
 import './Header.css'
 import { Link } from 'react-router-dom'
 
-function Header() {
+function Header({ resetError }) {
   return (
     <div className='header'>
-      <Link to='/' className='home-link'>
+      <Link to='/' className='home-link' onClick={() => {resetError()}}>
         <h1>THE MET</h1>
       </Link>
       <Link to='/favorites' className='favorites-link'>
-        <button>Favorites</button>
+        <button className='fav-button'>Favorites</button>
       </Link>  
     </div>
   )
