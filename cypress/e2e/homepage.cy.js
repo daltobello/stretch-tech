@@ -76,6 +76,6 @@ cy.get('.gallery .art-card')
   .should('have.attr', 'id', '436049')
   .get('.favorite-btn')
   .should('have.attr', 'id', 'heart')
-  .get('.footer').contains("Footer");
+  .get('.footer').contains("Disclaimer: This website is not affiliated with The Metropolitan Museum of Art. It is purely for educational purposes.")
   })
-});
+})
