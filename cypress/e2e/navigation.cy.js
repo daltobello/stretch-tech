@@ -42,7 +42,7 @@ describe("website navigation", () => {
     cy.wait("@getObject-436049");
   });
 
-  it("should be able to return you to the homepage", () => {
+  it("should display artwork details and be able to return to the homepage", () => {
     cy.get('.gallery .art-card')
     .first()
     .get('.image-container')
@@ -62,9 +62,7 @@ describe("website navigation", () => {
     .get('.back-btn').should("exist")
     .get('#heart').should("exist")
     .get('.art-title').should("contain", "Portrait of a Man")
-
-    get('.selected-art-info').find('.overview')
-    .should('contain', 'Artist: DEVIN, He got hitched at a castle')
+    .get('.selected-art-info').find('.overview').should('contain', 'Artist: DEVIN, He got hitched at a castle')
     .should('contain', 'Medium: Oil on alder')
     .should('contain', 'Dimensions: 22 x 16 3/4 in. (55.9 x 42.5 cm)')
     .should('contain', 'Credit Line: The Friedsam Collection, Bequest of Michael Friedsam, 1931')
@@ -94,4 +92,3 @@ describe("website navigation", () => {
   })
 })
 
-// UserFlow: User clicks the first piece of art in the gallery, they are routed to a new page, user clicks the home button (h1) and are routed back to the homepage.
