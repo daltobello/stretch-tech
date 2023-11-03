@@ -1,5 +1,6 @@
 import './Gallery.css'
 import ArtCard from '../ArtCard/ArtCard'
+import PropTypes from 'prop-types'
 
 function Gallery({ departmentObj }) {
   const allArtCards = departmentObj.map((obj => {
@@ -18,5 +19,18 @@ function Gallery({ departmentObj }) {
     <div className='gallery'>{allArtCards}</div>
   )
 }
+
+Gallery.propTypes = { 
+  departmentObj: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      date: PropTypes.string,
+      image: PropTypes.string,
+      title: PropTypes.string,
+      artist: PropTypes.string
+    })
+  )
+}
+
 
 export default Gallery
