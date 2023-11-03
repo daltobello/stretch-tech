@@ -64,11 +64,13 @@ describe("home button user flow", () => {
     .get('.art-title').contains("Portrait of a Man")
     .get('.selected-art-info')
     .first()
-
-    // .get('h1').contains("THE MET")
-    // .click()
-    // .get('.gallery').children().should("have.length", 3)
-    // .url().should('eq', 'http://localhost:3000/');
+    .contains("DEVIN, He got hitched at a castle")
+    .last()
+    .contains("32.100.61")
+    .get('h1').contains("THE MET")
+    .click()
+    .get('.gallery').children().should("have.length", 3)
+    .url().should('eq', 'http://localhost:3000/');
   })
 })
 
