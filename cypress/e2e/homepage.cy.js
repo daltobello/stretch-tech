@@ -44,10 +44,38 @@ describe("page load", () => {
 
   it("should display all homepage elements", () => {
     cy.get('h1').contains("THE MET")
-    .get('.fav-button').should("exist")
+    
     .get('.gallery').children().should("have.length", 3)
-    .get('.gallery > :nth-child(1)').should("have.attr", "id").should("eq", 36044 ) // not passing
-    // gallery section with 3 pictures
-    // footer
+    
+cy.get('.gallery .art-card')
+  .eq(0)
+  .get('.image-container')
+  .should('exist') 
+  .find('a.selected-art-link img')
+  .should('exist')
+  .should('have.attr', 'id', '436044')
+  .get('.favorite-btn')
+  .should('have.attr', 'id', 'heart');
+
+cy.get('.gallery .art-card')
+  .eq(1)
+  .find('.image-container')
+  .should('exist') 
+  .find('a.selected-art-link img')
+  .should('exist')
+  .should('have.attr', 'id', '436048')
+  .get('.favorite-btn')
+  .should('have.attr', 'id', 'heart');
+
+cy.get('.gallery .art-card')
+  .eq(2)
+  .find('.image-container')
+  .should('exist') 
+  .find('a.selected-art-link img')
+  .should('exist')
+  .should('have.attr', 'id', '436049')
+  .get('.favorite-btn')
+  .should('have.attr', 'id', 'heart')
+  .get('.footer').contains("Disclaimer: This website is not affiliated with The Metropolitan Museum of Art. It is purely for educational purposes.")
   })
-});
+})
