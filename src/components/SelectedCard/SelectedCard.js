@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { addFavorite, removeFavorite } from '../../Redux/favoriteCardsSlice'
 import { FaRegHeart, FaLeftLong, FaHeart } from 'react-icons/fa6';
+import PropTypes from "prop-types"
 
 function SelectedCard({ setServerError }) {
     const [selectedArt, setSelectedArt] = useState(false)
@@ -66,5 +67,9 @@ function SelectedCard({ setServerError }) {
         </div>
     );
 }
+
+SelectedCard.propTypes = { 
+    setServerError: PropTypes.func.isRequired,
+  }
 
 export default SelectedCard;
