@@ -1,5 +1,6 @@
 import './Header.css'
 import { Link } from 'react-router-dom'
+import PropTypes from "prop-types"
 
 function Header({ resetError }) {
   return (
@@ -13,5 +14,9 @@ function Header({ resetError }) {
     </div>
   )
 }
+
+Header.propTypes = {
+  resetError: PropTypes.func.isRequired,
+};
 
 export default Header
