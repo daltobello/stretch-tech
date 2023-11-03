@@ -63,23 +63,22 @@ describe("website navigation", () => {
     .get('#heart').should("exist")
     .get('.art-title').should("contain", "Portrait of a Man")
 
-    .get('.selected-art-info').find(".overview")
-    
-    //  .get('.selected-art-info').first().contains("DEVIN, He got hitched at a castle").last().contains("32.100.61")
-    
-    
-    
+    get('.selected-art-info').find('.overview')
+    .should('contain', 'Artist: DEVIN, He got hitched at a castle')
+    .should('contain', 'Medium: Oil on alder')
+    .should('contain', 'Dimensions: 22 x 16 3/4 in. (55.9 x 42.5 cm)')
+    .should('contain', 'Credit Line: The Friedsam Collection, Bequest of Michael Friedsam, 1931')
+    .should('contain', 'Accession Number: 32.100.61')
+
     .get('h1').contains("THE MET").click()
     .get('.gallery').children().should("have.length", 3)
     .url().should('eq', 'http://localhost:3000/');
   })
 
   it("should return to homepage after clicking artwork and viewing details", () => {
-    cy.get('.gallery .art-card')
-    .first()  
+    cy.get('.gallery .art-card').first()
     .click()
-    .url().should('eq', 'http://localhost:3000/art/436044')
-    .get('.back-btn').should("exist")
+    .url().should('eq', 'http://localhost:3000/art/436044').get('.back-btn').should("exist")
     .click()
     .get('.gallery').children().should("have.length", 3)
     .url().should('eq', 'http://localhost:3000/')
