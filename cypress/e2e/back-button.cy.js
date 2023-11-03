@@ -41,7 +41,7 @@ describe("back button user flow", () => {
     cy.wait("@getObject-436048");
     cy.wait("@getObject-436049");
   });
-  it("should be ", () => {
+  it("should ", () => {
     cy.get('.gallery .art-card')
     .first()  
     .click()
@@ -50,9 +50,16 @@ describe("back button user flow", () => {
     .click()
     .get('.gallery').children().should("have.length", 3)
     .url().should('eq', 'http://localhost:3000/')
-    // .get('h1')
-    // .click()
-   
-    // .url().should('eq', 'http://localhost:3000/');
+    .get('.favorite-btn')
+    .first()
+    .click()
+    .get('.gallery .art-card')
+    .first()  
+    .click()
+    .get('.back-btn').should("exist")
+    .click()
+    .url().should('eq', 'http://localhost:3000/')
   })
 })
+
+// this will be integrated to a user flow eventually 

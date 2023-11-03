@@ -79,5 +79,3 @@ cy.get('.gallery .art-card')
   .get('.footer').contains("Footer");
   })
 });
-
-// We need to check the nth child of gallery, then check if the child .contains an image container, check that the image container contains a favorite button etc
