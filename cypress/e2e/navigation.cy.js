@@ -90,5 +90,24 @@ describe("website navigation", () => {
     .click()
     .url().should('eq', 'http://localhost:3000/')
   })
+
+  it('should visit a bad URL, display error page, and return home', () => {
+    cy.intercept(
+      "GET",
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/fakeURL",
+      {
+        statusCode: 404,
+        body: ""
+      }
+    );
+
+    cy.visit('http://localhost:3000/art/fakeURL')
+    .url().should('eq', 'http://localhost:3000/art/fakeURL')
+    .get('.error-image').should("exist")
+    .get('.serverError > p').contains("Oh no! Sorry, that art piece doesn't exist.")
+    .get('.return-button').click()
+    .visit("http://localhost:3000/")
+    .url().should('eq', 'http://localhost:3000/')
+  })
 })
 
