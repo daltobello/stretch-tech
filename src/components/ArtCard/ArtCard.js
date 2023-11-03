@@ -28,9 +28,9 @@ function ArtCard({ image, title, id }) {
         </Link>
         <div className='favorite-btn' id="heart" onClick={() => toggleFavorite()}>
           {isFavorite ? (
-            <FaHeart style={{color: 'red', cursor: 'pointer', fontSize: '1.5em'}} />) : 
+            <FaHeart className="red-heart" style={{color: 'red', cursor: 'pointer', fontSize: '1.5em'}} />) : 
             (
-            <FaRegHeart style={{color: "#FFFFFF", fontSize: '1.5em', filter: 'drop-shadow(0 0 1px rgba(0, 0, 0, 1))'}} />
+            <FaRegHeart className="hollow-heart" style={{color: "#FFFFFF", fontSize: '1.5em', filter: 'drop-shadow(0 0 1px rgba(0, 0, 0, 1))'}} />
           )}
         </div>
       </div>
