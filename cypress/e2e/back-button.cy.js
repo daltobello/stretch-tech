@@ -1,4 +1,4 @@
-describe("page load", () => {
+describe("back button user flow", () => {
   beforeEach(() => {
     cy.intercept(
       "GET",
@@ -41,41 +41,25 @@ describe("page load", () => {
     cy.wait("@getObject-436048");
     cy.wait("@getObject-436049");
   });
-
-  it("should display all homepage elements", () => {
-    cy.get('h1').contains("THE MET")
-    
+  it("should ", () => {
+    cy.get('.gallery .art-card')
+    .first()  
+    .click()
+    .url().should('eq', 'http://localhost:3000/art/436044')
+    .get('.back-btn').should("exist")
+    .click()
     .get('.gallery').children().should("have.length", 3)
-    
-cy.get('.gallery .art-card')
-  .eq(0)
-  .get('.image-container')
-  .should('exist') 
-  .find('a.selected-art-link img')
-  .should('exist')
-  .should('have.attr', 'id', '436044')
-  .get('.favorite-btn')
-  .should('have.attr', 'id', 'heart');
-
-cy.get('.gallery .art-card')
-  .eq(1)
-  .find('.image-container')
-  .should('exist') 
-  .find('a.selected-art-link img')
-  .should('exist')
-  .should('have.attr', 'id', '436048')
-  .get('.favorite-btn')
-  .should('have.attr', 'id', 'heart');
-
-cy.get('.gallery .art-card')
-  .eq(2)
-  .find('.image-container')
-  .should('exist') 
-  .find('a.selected-art-link img')
-  .should('exist')
-  .should('have.attr', 'id', '436049')
-  .get('.favorite-btn')
-  .should('have.attr', 'id', 'heart')
-  .get('.footer').contains("Footer");
+    .url().should('eq', 'http://localhost:3000/')
+    .get('.favorite-btn')
+    .first()
+    .click()
+    .get('.gallery .art-card')
+    .first()  
+    .click()
+    .get('.back-btn').should("exist")
+    .click()
+    .url().should('eq', 'http://localhost:3000/')
   })
-});
+})
+
+// this will be integrated to a user flow eventually 
