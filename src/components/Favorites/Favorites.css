@@ -5,7 +5,7 @@
   gap: 10px;
   grid-template-columns: repeat(3, 1fr);
   overflow: scroll;
-  padding: 50px;
+  padding: 50p
 }
 
 .image-container {

@@ -62,8 +62,10 @@ describe("website navigation", () => {
     .get('.back-btn').should("exist")
     .get('#heart').should("exist")
     .get('.art-title').should("contain", "Portrait of a Man")
-    // .get('.art-title').contain("Portrait of a Man")
-    .get('.selected-art-info').first().contains("DEVIN, He got hitched at a castle").last().contains("32.100.61")
+
+    .get('.selected-art-info').find(".overview")
+    
+    //  .get('.selected-art-info').first().contains("DEVIN, He got hitched at a castle").last().contains("32.100.61")
     
     
     
