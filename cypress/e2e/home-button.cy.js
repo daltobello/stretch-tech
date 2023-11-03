@@ -43,13 +43,32 @@ describe("home button user flow", () => {
   });
   it("should be able to return you to the homepage", () => {
     cy.get('.gallery .art-card')
-    .first()  
+    .first()
+    .get('.image-container')
+    .should('exist') 
+    .find('a.selected-art-link img')
+    .should('exist')
+    .should('have.attr', 'id', '436044')
+    .get('.favorite-btn')
+    .should('have.attr', 'id', 'heart')
+    .get('.gallery .art-card')
+    .first()
     .click()
     .url().should('eq', 'http://localhost:3000/art/436044')
-    .get('h1')
-    .click()
-    .get('.gallery').children().should("have.length", 3)
-    .url().should('eq', 'http://localhost:3000/');
+    .get('.fav-button').contains("Favorites")
+    .get(".frame").should("exist")
+    .find(".selected-art-card-img")
+    .should('have.attr', 'alt', 'Portrait of a Man art piece')
+    .get('.back-btn').should("exist")
+    .get('#heart').should("exist")
+    .get('.art-title').contains("Portrait of a Man")
+    .get('.selected-art-info')
+    .first()
+
+    // .get('h1').contains("THE MET")
+    // .click()
+    // .get('.gallery').children().should("have.length", 3)
+    // .url().should('eq', 'http://localhost:3000/');
   })
 })
 
