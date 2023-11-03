@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { addFavorite, removeFavorite } from '../../Redux/favoriteCardsSlice'
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
+import PropTypes from "prop-types"
 
 function ArtCard({ image, title, id }) {
   const favoriteCards = useSelector((state) => state.favoriteCards);
@@ -35,6 +36,12 @@ function ArtCard({ image, title, id }) {
       </div>
     </div>
   );
+}
+
+ArtCard.propTypes = { 
+  id: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 }
 
 export default ArtCard;
