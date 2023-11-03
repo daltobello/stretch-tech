@@ -3,11 +3,13 @@ import './Favorites.css'
 import { useSelector } from 'react-redux';
 import ArtCard from '../ArtCard/ArtCard';
 import { useEffect, useState } from 'react';
+import Loader from '../Loader/Loader';
 
 function Favorites() {
   const favoriteCards = useSelector((state) => state.favoriteCards);
 
   const [allFaves, setAllFaves] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchFaves = async () => {
@@ -28,9 +30,15 @@ function Favorites() {
         })
       )
       setAllFaves(fetchedFaves)
+      setLoading(false)
     }
     fetchFaves()
-  }, [favoriteCards])
+    
+  }, [favoriteCards, setLoading])
+
+  if (loading) {
+    return <Loader />
+  }
 
   if (allFaves.length === 0) {
     return (
