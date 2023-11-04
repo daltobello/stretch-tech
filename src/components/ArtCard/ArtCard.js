@@ -10,7 +10,6 @@ function ArtCard({ image, title, id }) {
 
   const dispatch = useDispatch();
   const isFavorite = favoriteCards.includes(id);
-  console.log(favoriteCards)
 
   const toggleFavorite = () => {
     if (isFavorite) {
