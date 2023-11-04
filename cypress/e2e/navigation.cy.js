@@ -56,7 +56,7 @@ describe("website navigation", () => {
     .first()
     .click()
     .url().should('eq', 'http://localhost:3000/art/436044')
-    .get('.fav-button').contains("Favorites")
+    .get('.fav-button').contains("FAVORITES")
     .get(".frame").should("exist")
     .find(".selected-art-card-img").should('have.attr', 'alt', 'Portrait of a Man art piece')
     .get('.back-btn').should("exist")
