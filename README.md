@@ -10,7 +10,8 @@
 </div>
 
 ## Abstract
-"The Met Gallery" is your ultimate art sanctuary. Dive into a world of timeless masterpieces from The Metropolitan Museum of Art. Explore, save, and cherish your favorite artworks in one place. Immerse yourself in the beauty of art with "The Met Gallery."
+The Met Gallery is an immersive virtual museum experience, granting users access to a curated selection of the Metropolitan Museum of Art's European Paintings collection. Dive into a world of timeless masterpieces. This project's primary objective was to create a React application with global state management via Redux Toolkit. Users can click on a painting to delve into its details, save their favorites, and conveniently review their cherished artworks. The application provides smooth navigation, supporting users with browser history controls, and ensures a consistent experience through comprehensive error handling for both server-side and user-related issues.
+
 
 ### Contributors
 
@@ -52,9 +53,21 @@ Users should be able to:
 - View all artwork
 - Click on a given artwork and view details about the artwork
 - Favorite a specific artwork
-- Click on "favorites" in the nav bar and view favorited artwork
+- Click on "favorites" in the nav bar and view saved artworks
 - See errors if there are server errors
 ```
+
+### Setup
+1. Clone down this repository:
+  ```
+https://github.com/daltobello/stretch-tech
+  ```
+2. `cd` into `stretch-tech` directory and run:
+  ```
+  npm install
+  npm start
+  ```
+3. Enter the following url in your browser: http://localhost:3000/
 
 
 
