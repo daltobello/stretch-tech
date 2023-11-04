@@ -3,7 +3,7 @@
   height: 10vh;
   width: 96%;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .footer-container, .repo {
