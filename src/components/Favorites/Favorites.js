@@ -7,7 +7,6 @@ import Loader from '../Loader/Loader';
 
 function Favorites() {
   const favoriteCards = useSelector((state) => state.favoriteCards);
-  console.log(favoriteCards)
   const [allFaves, setAllFaves] = useState([]);
   const [loading, setLoading] = useState(true);
 
