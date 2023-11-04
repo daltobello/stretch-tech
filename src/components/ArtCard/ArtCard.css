@@ -5,8 +5,8 @@
   text-align: center;
 }
 
-.art-card:hover {
-  /* filter:  */
+.art-card:hover img {
+  filter:brightness(120%)
 }
 
 .art-card-img {
@@ -30,6 +30,6 @@
   bottom: 0;
   position: absolute;
 	right: 0;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   margin-right: 10px;
 }

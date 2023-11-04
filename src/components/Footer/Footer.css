@@ -1,12 +1,17 @@
 .footer {
   display: flex;
   height: 10vh;
-  width: 100%;
-  justify-content: flex-end;
-  align-items: flex-end;
+  width: 96%;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.footer-container {
+.footer-container, .repo {
   font-size: 13px;
   max-width: 360px;
+}
+
+.repo-link {
+  text-decoration: none;
+  color: #000000;
 }

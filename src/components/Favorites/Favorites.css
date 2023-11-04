@@ -5,10 +5,25 @@
   gap: 10px;
   grid-template-columns: repeat(3, 1fr);
   overflow: scroll;
-  padding: 50p
+  padding: 50px;
+  animation: fadeIn 1s forwards;
 }
 
 .image-container {
   width: 300px;
 }
 
+.no-tracked {
+  height: 73vh;
+  animation: fadeIn 1s forwards;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
