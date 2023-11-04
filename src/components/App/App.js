@@ -42,20 +42,21 @@ function App() {
 
   return (
     <div className="App">
-      <Header resetError={resetError} />
-      {isLoading ? (
-        <Loader />
-      ) : serverError.hasError ? (
-        <ErrorPage serverError={serverError} resetError={resetError} />
-      ) : (
+    <Header resetError={resetError} />
+    {serverError.hasError ? (
+      <ErrorPage serverError={serverError} resetError={resetError} />
+    ) : isLoading ? (
+      <Loader />
+    ) : (
       <Routes>
         <Route path='/' element={<Gallery departmentObj={departmentObj}/>} />
         <Route path='/art/:id' element={<SelectedCard setServerError={setServerError} setIsLoading={setIsLoading} />} />
         <Route path='/favorites' element={<Favorites setIsLoading={setIsLoading} />} />
         <Route path='*' element={<ErrorPage resetError={resetError} />} />
-      </Routes> )}
-      <Footer/>
-    </div>
+      </Routes>
+    )}
+    <Footer/>
+  </div>
   );
 }
 
