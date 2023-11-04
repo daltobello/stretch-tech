@@ -8,10 +8,12 @@ import { Route, Routes } from 'react-router-dom'
 import SelectedCard from '../SelectedCard/SelectedCard';
 import Favorites from '../Favorites/Favorites';
 import ErrorPage from '../ErrorPage/ErrorPage';
+import Loader from '../Loader/Loader';
 
 function App() {
   const [serverError, setServerError] = useState({hasError: false, message: ''});
   const [departmentObj, setDepartmentObj] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
   
   useEffect(() => {
     getAllMuseumDepartments()
@@ -28,6 +30,7 @@ function App() {
       .then(objectDetails => {
         setDepartmentObj(objectDetails);
       })
+      .then(() => setIsLoading(false))
       .catch(error => {
         setServerError({hasError: true, message: `${error.message}`})
       });
@@ -40,13 +43,15 @@ function App() {
   return (
     <div className="App">
       <Header resetError={resetError} />
-      {serverError.hasError ? (
+      {isLoading ? (
+        <Loader />
+      ) : serverError.hasError ? (
         <ErrorPage serverError={serverError} resetError={resetError} />
       ) : (
       <Routes>
         <Route path='/' element={<Gallery departmentObj={departmentObj}/>} />
-        <Route path='/art/:id' element={<SelectedCard setServerError={setServerError} />} />
-        <Route path='/favorites' element={<Favorites />} />
+        <Route path='/art/:id' element={<SelectedCard setServerError={setServerError} setIsLoading={setIsLoading} />} />
+        <Route path='/favorites' element={<Favorites setIsLoading={setIsLoading} />} />
         <Route path='*' element={<ErrorPage resetError={resetError} />} />
       </Routes> )}
       <Footer/>

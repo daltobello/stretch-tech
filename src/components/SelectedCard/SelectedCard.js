@@ -7,8 +7,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addFavorite, removeFavorite } from '../../Redux/favoriteCardsSlice'
 import { FaRegHeart, FaLeftLong, FaHeart } from 'react-icons/fa6';
 import PropTypes from "prop-types"
+import Loader from '../Loader/Loader'
 
-function SelectedCard({ setServerError }) {
+function SelectedCard({ setServerError, setIsLoading }) {
     const [selectedArt, setSelectedArt] = useState(false)
     const { id } = useParams();
     const favoriteCards = useSelector((state) => state.favoriteCards);
@@ -30,10 +31,16 @@ function SelectedCard({ setServerError }) {
             .then(data => {
                 setSelectedArt(data)
             })
+            .then(() => setIsLoading(false))
             .catch((error) => {
                 setServerError({ hasError: true, message: `${error.message}` })
             })
-    }, [id, setServerError])
+            .finally(() => setIsLoading(false))
+    }, [id, setServerError, setIsLoading])
+
+    if (!selectedArt) {
+        return <Loader />
+      }
 
     return (
         <div className='selected-art-container'>
