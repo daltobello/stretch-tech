@@ -15,7 +15,16 @@
 
 .no-tracked {
   height: 73vh;
+  padding-top: 50px;
   animation: fadeIn 1s forwards;
+}
+
+@media (max-width: 1350px) {
+  .favorites-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+  }
 }
 
 
