@@ -2,8 +2,7 @@
 
 # The Met Gallery
 ### Stretch Tech - Global State Management (Redux)
-
-<img width="1361" src="https://github.com/daltobello/stretch-tech/assets/126308696/2e9c6c38-b729-4f81-b30b-06def5015e6c">
+<img width="1494" alt="Screenshot 2023-11-04 at 2 31 55 PM" src="https://github.com/daltobello/stretch-tech/assets/130494366/155c0f6e-960b-4ff9-9e02-281e8db3dcb8">
 
 ### [Deployed Link](https://stretch-tech-theta.vercel.app/)
 
