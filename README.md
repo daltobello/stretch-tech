@@ -35,6 +35,23 @@ The Met Gallery is an immersive virtual museum experience, granting users access
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
 
+### Preview
+<details>
+<summary>
+More Images
+</summary> 
+
+<div align="center">
+
+<img width="1180" alt="Screenshot 2023-11-04 at 11 44 10" src="https://github.com/daltobello/stretch-tech/assets/126308696/1ead3a49-98f5-41a0-be78-ab5a6f08e0a0">
+
+<img width="1267" alt="Screenshot 2023-11-04 at 12 04 28" src="https://github.com/daltobello/stretch-tech/assets/126308696/849d1291-010f-4df6-bf0b-c16f0bf585a4">
+
+
+
+</details>
+
+</div>
 
 ### Goals
 ```
