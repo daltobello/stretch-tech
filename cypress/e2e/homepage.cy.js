@@ -77,5 +77,6 @@ describe("page load", () => {
       .get('.favorite-btn')
       .should('have.attr', 'id', 'heart')
       .get('.footer').contains("Disclaimer: This website is not affiliated with The Metropolitan Museum of Art. It is purely for educational purposes.")
-    })
+      .get('.repo-link').contains("GitHub")
+      })
 })
