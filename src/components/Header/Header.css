@@ -29,6 +29,8 @@
 	color: white;
   font-size: 0.5em;
   font-weight: bolder;
+  margin-top: 3.95%;
+  margin-right: 10%;
   
 }
 
@@ -38,7 +40,8 @@
 	right: 0;
 	top: 0;
 	line-height: 28px;
-  border-bottom-left-radius: 8px;
+  border-radius: 8px;
+  display: flex;
 }
 
 .fav-button:hover {
