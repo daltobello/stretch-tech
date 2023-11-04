@@ -1,28 +1,29 @@
 .serverError {
-    font-size: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #060606;
-    height: 100vh;
-    width: 100%;
-  }
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #060606;
+  height: 100vh;
+  width: 100%;
+}
 
-  .error-image {
-    margin-top: 5vh;
-  }
-  
-  .return-button {
-    border-radius: 8%;
-    height: 3em;
-    width: 8em;
-    background-color: #0f0e0d;
-    border: none;
-    color: white;
-    font-weight: bolder;
-  }
-  .return-button:hover {
-    background-color: #747475;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-  }
+.error-image {
+  margin-top: 5vh;
+}
+
+.return-button {
+  border-radius: 8%;
+  height: 3em;
+  width: 8em;
+  background-color: #0f0e0d;
+  border: none;
+  color: white;
+  font-weight: bolder;
+}
+
+.return-button:hover {
+  background-color: #747475;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}

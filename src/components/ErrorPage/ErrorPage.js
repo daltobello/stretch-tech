@@ -1,5 +1,5 @@
-import './ErrorPage.css'
-import { Link } from 'react-router-dom'
+import './ErrorPage.css';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function ErrorPage({ serverError, resetError }) {

@@ -1,47 +1,47 @@
 .selected-art-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    animation: fadeIn 1s forwards;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  animation: fadeIn 1s forwards;
 }
 
 .selected-art-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .art-title {
-    display: flex;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 10px;
+  display: flex;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .overview {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
 }
 
 .buttons-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 #heart {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .selected-art-card-img {
-    border:solid 3px;
-    border-bottom-color:#ffe;
-    border-left-color:#eed;
-    border-right-color:#eed;
-    border-top-color:#ccb;
+  border:solid 3px;
+  border-bottom-color:#ffe;
+  border-left-color:#eed;
+  border-right-color:#eed;
+  border-top-color:#ccb;
 }
 
 .frame {

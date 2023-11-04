@@ -51,7 +51,6 @@ function Favorites() {
           {allFaves}
         </div>
       )}
-
 }
 
 export default Favorites
