@@ -5,8 +5,8 @@
   text-align: center;
 }
 
-.art-card:hover {
-  /* filter:  */
+.art-card:hover img {
+  filter:brightness(120%)
 }
 
 .art-card-img {

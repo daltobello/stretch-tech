@@ -2,7 +2,8 @@ import './Header.css'
 import { Link } from 'react-router-dom'
 import PropTypes from "prop-types"
 import { useState } from 'react'
-import { FaRegHeart, FaHeart } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa6";
+import logo from '../../images/logo.png';
 
 function Header({ resetError }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -18,7 +19,7 @@ function Header({ resetError }) {
   return (
     <div className='header'>
       <Link to='/' className='home-link' onClick={() => {resetError()}}>
-        <h1>THE MET</h1>
+        <h1><img src={logo} className='logo'/>THE MET</h1>
       </Link>
       <Link to='/favorites' className='favorites-link'>
           <button 
